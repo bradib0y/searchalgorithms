@@ -93,3 +93,13 @@ print(re.findall(r'''
 # .groupdict() - method to generate a dictionary from a Match object's groups. The keys will be the group names. The values will be the results of the patterns in the group.
 # re.finditer() - method to generate an iterable from the non-overlapping matches of a regular expression. Very handy for for loops.
 # .group() - method to access the content of a group. 0 or none is the entire match. 1 through how ever many groups you have will get that group. Or use a group's name to get it if you're using named groups.
+
+def remember(thing):
+    file = open("database.txt", "a")
+
+    file.write(thing + "\n")
+
+    file.close()
+
+
+remember(input("What should I remember?"))
