@@ -43,27 +43,44 @@ def linearsearch(list, target):
     return None
 
 def testlog():
-    for i in range(3,12):
+    for i in range(10, 19):
         numbers = range(0, int(math.pow(10, i)))
         number = (int(math.pow(10, i)) - 3)
+
+        datastring = ""
+        datastring += (str)(len(numbers))
+        datastring += ";"
 
         print("")
         message = '-> Quantity: %s (10 to the power of %s)' % (number + 3, i)
         print(message)
 
 
-        log_start = time.time()
-        print(linearsearch(numbers, number))
-        print("Linear search: " , time.time() - log_start)
+        # log_start = time.time()
+        # print(linearsearch(numbers, number))
+        # result = time.time() - log_start
+        print("Linear search: " , "null") # result)
+        datastring += "null" # (str)(result)
+        datastring += ";"
 
 
         log_start = time.time()
         print(binarysearch(numbers, number))
-        print("Binary search: " , time.time() - log_start)
+        result = time.time() - log_start
+        print("Binary search: " , result)
+        datastring += (str)(result)
+        datastring += ";"
 
         log_start = time.time()
         print(recursivebinarysearch(numbers, number))
-        print("Recursive binary search: " , time.time() - log_start)
+        result = time.time() - log_start
+        print("Recursive binary search: " , result)
+        datastring += (str)(result)
+        
+        
+        file = open("data.csv", "a")
+        file.write(datastring + "\n")
+        file.close()
 
 testlog()
 
